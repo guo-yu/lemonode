@@ -61,10 +61,10 @@ var postModel = new mongoose.Schema({
 		type: String,
 		default: 'post'
 	},
-	cata: {
+	cata: [{
 		type: Schema.Types.ObjectId,
     	ref: 'cata'
-	}
+	}]
 });
 
 // 操作与管理员

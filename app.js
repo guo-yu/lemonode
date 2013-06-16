@@ -36,7 +36,7 @@ app.configure('development', function(){
 });
 
 // 填入配置项
-require('./config').get(function(siteinfo){
+require('./ctrlers/setting').get(function(siteinfo){
   // app.locals['site'] = siteinfo;
   app.locals['site'] = {
     name: 'for test'
