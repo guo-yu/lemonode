@@ -1,4 +1,4 @@
-var model = require('./models'),
+var model = require('../models'),
 	ad = model.ad;
 
 // 新建一个广告位

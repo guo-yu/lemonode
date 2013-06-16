@@ -1,4 +1,4 @@
-var model = require('./models'),
+var model = require('../models'),
 	post = model.post;
 
 // 读取一篇文章或者一个页面的所有数据
