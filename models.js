@@ -25,6 +25,7 @@ var siteModel = new mongoose.Schema({
 var cataModel = new mongoose.Schema({
 	name: String,
 	desc: String,
+	alias: String,
 	banner: {
 		type: Schema.Types.ObjectId,
 		ref: 'media'
