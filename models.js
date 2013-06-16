@@ -116,6 +116,10 @@ var mediaModel = new mongoose.Schema({
 	pubdate: {
 		type: Date,
 		default: new Date()
+	},
+	sync: {
+		stat: String,
+		date: Date
 	}
 });
 
