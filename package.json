@@ -1,6 +1,6 @@
 {
-  "name": "lemonCMS",
-  "version": "0.0.1",
+  "name": "lemonode CMS",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node app"

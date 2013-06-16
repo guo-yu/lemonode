@@ -9,7 +9,7 @@ var configure = {
 
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	db = mongoose.createConnection('localhost', configure.name),
+	db = mongoose.createConnection('localhost', configure.name);
 
 // 站点设置
 var siteModel = new mongoose.Schema({
@@ -87,7 +87,7 @@ var adsModel = new mongoose.Schema({
 	src: {
 		type: Schema.Types.ObjectId,
 		ref: 'media'
-	}
+	},
 	meta: {
 		width: Number,
 		height: Number

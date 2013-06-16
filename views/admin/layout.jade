@@ -1,0 +1,28 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/admin.css')
+  body
+    #admin
+        .hd.fn-clear
+          .container
+            h1.fn-left 欢迎，这是 #{site.name} 的后台
+            .admin-tab
+                .ui-tab
+                    ul.ui-tab-items
+                        li.ui-tab-item.ui-tab-item-current
+                            a(href="#") 网站概览
+                        li.ui-tab-item
+                            a(href="#") 文章管理
+                        li.ui-tab-item
+                            a(href="#") 目录管理
+                        li.ui-tab-item
+                            a(href="#") 媒体管理
+                        li.ui-tab-item
+                            a(href="#") 站点设置
+        .content.fn-clear
+            block content
+        .footer
+            .container.fn-clear
+                | &copy; 2012 #{site.name} powered by #{system.name} @ #{system.version}

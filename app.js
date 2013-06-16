@@ -5,7 +5,7 @@
 // /_/\___/_/ /_/ /_/\____/_/ /_/\___/_/ /_/ /_/____/  
                                                       
 /**
- * @role: server
+ * @role: server core
  * @author [turingou]
  */
 
@@ -35,12 +35,36 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/api/site', routes.site)
-app.get('/api/site/:type', routes.site)
-app.get('/api/cata/:name', routes.cata)
-app.get('/api/cata/:name/posts', routes.page)
-app.get('/api/cata/:name/posts/:page', routes.page)
-app.get('/api/posts/:id', routes.post);
-app.get('/api/ads/:type/:limited', routes.ads);
+// 填入配置项
+require('./config').get(function(siteinfo){
+  // app.locals['site'] = siteinfo;
+  app.locals['site'] = {
+    name: 'for test'
+  }
+});
+
+// 填入引擎信息
+require('./config').system(function(systemInfo){
+  app.locals['system'] = systemInfo;
+  console.log(app.locals['system']);
+});
+
+// core api read
+// app.get('/api/site', require('./routes/api/site'))
+// app.get('/api/site/:type', require('./routes/api/site'))
+// app.get('/api/cata/:name', require('./routes/api/cata'))
+// app.get('/api/cata/:name/posts', require('./routes/api/cata'))
+// app.get('/api/cata/:name/posts/:page', require('./routes/api/cata'))
+// app.get('/api/posts/:id', require('./routes/api/post'))
+// app.get('/api/ads/:type/:limited', require('./routes/api/ads'))
+
+// core api write
+// app.post('/api/site', require('./routes/api/post/site'))
+
+// front-end interface
+app.get('/',require('./routes/index'));
+
+// admin interface
+app.get('/admin',require('./routes/admin/index'));
 
 http.createServer(app).listen(app.get('port'));

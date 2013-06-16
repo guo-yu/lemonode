@@ -1,0 +1,116 @@
+extends layout
+
+block content
+  .container.fn-clear
+    .ui-grid-row
+        .ui-grid-5
+            .ui-box
+                .ui-box-head
+                    .ui-box-head-border
+                        .ui-box-head-title 导航条模块
+                        .ui-box-head-text
+                        a.ui-box-head-more 更多
+                .ui-box-container
+                    .ui-box-content
+                        .ui-list
+                            li.ui-list-item(ng-repeat="nav in navlist")
+                                a(href="#") {{nav.name}}
+        .ui-grid-20
+            .ui-box
+                .ui-box-head
+                    .ui-box-head-border
+                        .ui-box-head-title 站点信息设置
+                        .ui-box-head-text
+                        a.ui-box-head-more 更多
+                .ui-box-container
+                    .ui-box-content
+                        .ui-form(ng-controller="postCtrl")
+                            fieldset
+                                .ui-form-item
+                                    label.ui-label 文章标题
+                                    input(type="text").ui-input
+                                    span.ui-form-other *
+                                .ui-form-item
+                                    label.ui-label 文章内容
+                                    textarea(type="text").ui-input
+                                .ui-form-item
+                                    input.ui-button.ui-button-morange(type="submit",value="写好了")
+                                    input.ui-button.ui-button-mwhite(type="button",value="算了")
+            .ui-box
+                .ui-box-head
+                    .ui-box-head-border
+                        .ui-box-head-title 站点信息设置
+                        .ui-box-head-text
+                        a.ui-box-head-more 更多
+                .ui-box-container
+                    .ui-box-content
+                        .ui-form(ng-controller="settingCtrl")
+                            fieldset
+                                .ui-form-item
+                                    label.ui-label 站点名称
+                                    input(type="text").ui-input
+                                    span.ui-form-other 提示
+                                    p.ui-form-explain 默认文案
+                                .ui-form-item
+                                    label.ui-label icp备案号
+                                    input(type="text").ui-input
+                                    span.ui-form-other 提示
+                                    p.ui-form-explain 默认文案
+                                .ui-form-item
+                                    label.ui-label 联系电话
+                                    input(type="text").ui-input
+                                    span.ui-form-other 提示
+                                    p.ui-form-explain 默认文案
+                                .ui-form-item
+                                    label.ui-label 传真号
+                                    input(type="text").ui-input
+                                    span.ui-form-other 提示
+                                    p.ui-form-explain 默认文案
+                                .ui-form-item
+                                    label.ui-label 地址
+                                    input(type="text").ui-input
+                                    span.ui-form-other 提示
+                                    p.ui-form-explain 默认文案
+                                .ui-form-item
+                                    label.ui-label 邮箱
+                                    input(type="text").ui-input
+                                    span.ui-form-other 提示
+                                    p.ui-form-explain 默认文案
+                                .ui-form-item
+                                    input.ui-button.ui-button-morange(type="submit",value="提交修改")
+                                    input.ui-button.ui-button-mwhite(type="button",value="算了")
+            .ui-box
+                .ui-box-head
+                    .ui-box-head-border
+                        .ui-box-head-title 所有文章
+                        .ui-box-head-text
+                .ui-box-container
+                    .ui-box-content.posts
+                        table.ui-table.ui-table-noborder
+                            tbody
+                                tr(ng-repeat="post in postlist")
+                                    td 
+                                        input(class="test",value="",type="checkbox")
+                                    td
+                                        p {{post.name}}
+                                        p {{post.author}} @ {{post.pubdate}}
+                                    td.action
+                                        p 
+                                            a(href="#").ui-button.ui-button-swhite
+                                                i.icon-edit
+                                                | 编辑
+                                        p 
+                                            a(href="#").ui-button.ui-button-swhite
+                                                i.icon-trash
+                                                | 删除
+                        .ui-paging.fn-clear
+                            span.ui-paging-info
+                                | 第
+                                span.ui-paging-bold 1/2
+                                | 页
+                            a.ui-paging-prev(href="#")
+                                i.iconfont(title="左三角形") &#xF039;
+                                | 上一页
+                            a.ui-paging-prev(href="#")
+                                i.iconfont(title="左三角形") &#xF03A;
+                                | 上一页
