@@ -68,7 +68,7 @@ var postModel = new mongoose.Schema({
 });
 
 // 操作与管理员
-var adminModel = new mongoose.Schema({
+var userModel = new mongoose.Schema({
 	name: String,
 	password: String,
 	email: String,
@@ -102,10 +102,14 @@ var linksModel = new mongoose.Schema({
 	src: String
 });
 
-// 管理员分组
+// 用户分组
 var groupModel = new mongoose.Schema({
 	name: String,
-	type: String
+	type: String,
+	user: [{
+		type: Schema.Types.ObjectId,
+		ref: 'user'
+	}]
 });
 
 // 上传媒体管理
@@ -126,7 +130,7 @@ var mediaModel = new mongoose.Schema({
 exports.site = db.model('site', siteModel);
 exports.cata = db.model('cata', cataModel);
 exports.post = db.model('post', postModel);
-exports.admin = db.model('admin', adminModel);
+exports.user = db.model('user', userModel);
 exports.ad = db.model('ad', adsModel);
 exports.link = db.model('link', linksModel);
 exports.group = db.model('group', groupModel);
