@@ -33,10 +33,14 @@ body {
   margin-bottom: 10px;
 }
 #admin .admin-tab {
+  float: right;
   margin-bottom: -1px;
 }
 #admin .admin-tab li {
   margin-right: 2px;
+}
+.panel {
+  display: none;
 }
 .posts i {
   padding-right: 10px;

@@ -36,17 +36,12 @@ exports.create = function(baby,cb) {
 }
 
 // 编辑文章或者页面
-exports.edit = function(id,body,cb) {
+exports.update = function(id,body,cb) {
 	// 这里可以直接使用update
-	post.findById(id).exec(function(err,post){
-		_.each(post,function(value,key){
-			post[key] = body[key];
-		});
-		post.save(function(err){
-			if (!err) {
-				cb(post);
-			}
-		})
+	post.findByIdAndUpdate(id,body,function(err){
+		if (!err) {
+			cb(body);
+		}
 	})
 }
 
