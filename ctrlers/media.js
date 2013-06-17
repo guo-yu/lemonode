@@ -1,6 +1,7 @@
 var model = require('../models'),
 	media = model.media;
-	cdn = require('../lib/cdn');
+	cdn = require('../lib/cdn'),
+	async = require('async');
 
 // 新建一个媒体，可以是图片，或者其他附件
 exports.create = function(src,cb) {
