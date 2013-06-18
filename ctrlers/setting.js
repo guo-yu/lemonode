@@ -1,4 +1,4 @@
-var model = require('./models'),
+var model = require('../models'),
 	fs = require('fs');
 
 exports.set = function(key, value) {

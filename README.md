@@ -18,6 +18,7 @@ Test
 ========
 
 `$ cd ./test`
+
 `$ nodeunit single-test.js`
 
 lemonode使用exports写法描述单元测试
@@ -27,4 +28,6 @@ Roadmap 0.0.1 -> 0.1.0
 ========
 
 - 设计后台页面
+	- (done)
+- 设计restful APIs
 - 设计restful APIs
