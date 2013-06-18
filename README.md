@@ -14,6 +14,15 @@ Angular的web app化思路让我联想到最初最初我对博客系统的畅想
 
 至于访问速度，更是提升了不止一个数量级。这就是lemonode要达到的目标之一。
 
+Test 
+========
+
+`$ cd ./test`
+`$ nodeunit single-test.js`
+
+lemonode使用exports写法描述单元测试
+可以使用nodeunit或者mocha执行单元测试
+
 Roadmap 0.0.1 -> 0.1.0
 ========
 

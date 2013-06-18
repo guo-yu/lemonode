@@ -1,12 +1,12 @@
 // 测试libs是否正常工作
-exports.ctrlers = {
+exports.libs = {
     // 在测试前
     setUp: function (callback) {
+        console.log('现在开始执行lib相关的测试')
         this.foo = 'bar';
         callback();
     },
     tearDown: function (callback) {
-        console.log('不错可以回家吃饭了！')
         // clean up
         callback();
     },
@@ -20,11 +20,11 @@ exports.ctrlers = {
 exports.ctrlers = {
     // 在测试前
 	setUp: function (callback) {
+        console.log('现在开始执行ctrler相关的测试')
         this.foo = 'bar';
         callback();
     },
     tearDown: function (callback) {
-    	console.log('不错可以回家吃饭了！')
         // clean up
         callback();
     },
@@ -35,14 +35,14 @@ exports.ctrlers = {
 }
 
 // 测试routers是否正常工作
-exports.ctrlers = {
+exports.routers = {
     // 在测试前
     setUp: function (callback) {
+        console.log('现在开始执行routers相关的测试')
         this.foo = 'bar';
         callback();
     },
     tearDown: function (callback) {
-        console.log('不错可以回家吃饭了！')
         // clean up
         callback();
     },
