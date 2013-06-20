@@ -35,20 +35,6 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-// 填入配置项
-require('./ctrlers/setting').get(function(siteinfo){
-  // app.locals['site'] = siteinfo;
-  app.locals['site'] = {
-    name: 'for test'
-  }
-});
-
-// 填入引擎信息
-require('./config').system(function(systemInfo){
-  app.locals['system'] = systemInfo;
-  console.log(app.locals['system']);
-});
-
 // core api read
 // app.get('/api/site', require('./routes/api/site'))
 // app.get('/api/site/:type', require('./routes/api/site'))
@@ -65,6 +51,6 @@ require('./config').system(function(systemInfo){
 app.get('/',require('./routes/index'));
 
 // admin interface
-app.get('/admin',require('./routes/admin/index'));
+app.get('/admin',require('./lib/preload')(app),require('./routes/admin/index'));
 
 http.createServer(app).listen(app.get('port'));
