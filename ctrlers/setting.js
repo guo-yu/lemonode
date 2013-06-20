@@ -1,3 +1,10 @@
+/**
+*
+* ctrler: 站点设置
+*
+**/
+
+
 var model = require('../models'),
 	fs = require('fs');
 
