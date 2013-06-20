@@ -29,7 +29,7 @@ block content
                         a.ui-box-head-more 更多
                 .ui-box-container
                     .ui-box-content
-                        .ui-form(ng-controller="postCtrl")
+                        .ui-form(ng-controller="lemonCtrlers.post")
                             fieldset
                                 .ui-form-item
                                     label.ui-label 文章标题
@@ -49,40 +49,40 @@ block content
                         a.ui-box-head-more 更多
                 .ui-box-container
                     .ui-box-content
-                        .ui-form(ng-controller="settingCtrl")
+                        .ui-form(name="editSetting")
                             fieldset
                                 .ui-form-item
                                     label.ui-label 站点名称
-                                    input(type="text").ui-input
+                                    input(type="text",ng-model="setting.name").ui-input
                                     span.ui-form-other 提示
                                     p.ui-form-explain 默认文案
                                 .ui-form-item
                                     label.ui-label icp备案号
-                                    input(type="text").ui-input
+                                    input(type="text",ng-model="setting.icp").ui-input
                                     span.ui-form-other 提示
                                     p.ui-form-explain 默认文案
                                 .ui-form-item
                                     label.ui-label 联系电话
-                                    input(type="text").ui-input
+                                    input(type="text",ng-model="setting.phone").ui-input
                                     span.ui-form-other 提示
                                     p.ui-form-explain 默认文案
                                 .ui-form-item
                                     label.ui-label 传真号
-                                    input(type="text").ui-input
+                                    input(type="text",ng-model="setting.fax").ui-input
                                     span.ui-form-other 提示
                                     p.ui-form-explain 默认文案
                                 .ui-form-item
                                     label.ui-label 地址
-                                    input(type="text").ui-input
+                                    input(type="text",ng-model="setting.adr").ui-input
                                     span.ui-form-other 提示
                                     p.ui-form-explain 默认文案
                                 .ui-form-item
                                     label.ui-label 邮箱
-                                    input(type="text").ui-input
+                                    input(type="text",ng-model="setting.email").ui-input
                                     span.ui-form-other 提示
                                     p.ui-form-explain 默认文案
                                 .ui-form-item
-                                    input.ui-button.ui-button-morange(type="submit",value="提交修改")
+                                    a.ui-button.ui-button-morange(href="javascript:'';",ng-click="update.setting()") 提交修改
                                     input.ui-button.ui-button-mwhite(type="button",value="算了")
             .ui-box
                 .ui-box-head

@@ -10,5 +10,5 @@ var sys = require('../../ctrlers/system');
 module.exports = function(req,res){
 	sys.get(function(info){
 		res.json(info);
-	})
+	});
 }

@@ -13,6 +13,28 @@
 //     }).render();
 // });
 
-window.lemonAdmin = function() {
-    
-};
+window.lemonAdmin = angular.module('lemonAdmin', ['lemonStore']);
+window.lemonCtrlers = {};
+
+lemonCtrlers['main'] = function($scope,Store) {
+    Store.get('/api/setting',function(data){
+        console.log(data);
+    });
+    Store.get('/api/system',function(data){
+        $scope.system = data;
+    });
+    $scope.update = {
+        setting: function() {
+            console.log($scope.setting);
+            Store.post('/api/setting',$scope.setting,function(data){
+                console.log(data)
+            })
+        }
+    }
+}
+
+lemonCtrlers['post'] = function($scope) {
+}
+
+lemonCtrlers['setting'] = function($scope) {
+}

@@ -44,9 +44,8 @@ app.configure('development', function(){
 // app.get('/archive', require('./routes/archive'))
 
 // core api read
-app.all('/api/system', require('./routes/api/system'))
-app.all('/api/site', require('./routes/api/site'))
-// app.get('/api/site/:type', require('./routes/api/site'))
+app.get('/api/system', require('./routes/api/system'))
+app.all('/api/setting', require('./routes/api/setting'))
 // app.get('/api/cata/:name', require('./routes/api/cata'))
 // app.get('/api/cata/:name/posts', require('./routes/api/cata'))
 // app.get('/api/cata/:name/posts/:page', require('./routes/api/cata'))
@@ -57,7 +56,10 @@ app.all('/api/site', require('./routes/api/site'))
 // core api write
 // app.post('/api/site', require('./routes/api/site'))
 
+// install interface
+app.get('/install',require('./ctrlers/install').uninstall, require('./routes/admin/install'));
+
 // admin interface
-app.get('/admin',require('./routes/admin/index'));
+app.get('/admin',require('./ctrlers/install').install,require('./routes/admin/index'));
 
 http.createServer(app).listen(app.get('port'))
