@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  .container.fn-clear
+    .ui-grid-row
+        h2 按照您的新博客
+        form(action="/install",method="POST",name="setting",id="install")
+            input(name="name",placeholder="网站名称")
+            input(type="submit",value="新建我的网站")

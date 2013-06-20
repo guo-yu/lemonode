@@ -16,3 +16,14 @@ exports.get = function(cb) {
 		cb(siteinfo);
 	});
 };
+
+exports.install = function(baby,cb) {
+	var baby = new model.site(baby);
+	baby.save(function(err){
+		if (!err) {
+			cb(baby._id)
+		} else {
+			console.log(err);
+		}
+	})
+}

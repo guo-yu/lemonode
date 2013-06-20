@@ -56,8 +56,8 @@ app.all('/api/setting', require('./routes/api/setting'))
 // core api write
 // app.post('/api/site', require('./routes/api/site'))
 
-// install interface
-app.get('/install',require('./ctrlers/install').uninstall, require('./routes/admin/install'));
+// install interface and api
+app.all('/install',require('./ctrlers/install').uninstall, require('./routes/admin/install'));
 
 // admin interface
 app.get('/admin',require('./ctrlers/install').install,require('./routes/admin/index'));

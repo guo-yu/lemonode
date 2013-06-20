@@ -14,9 +14,7 @@ exports.fetch = function(cb) {
 		if (!err) {
 			if (site === null) {
 				cb(false)
-				// exports.redirect(req,res,next);
 			} else {
-				// next();
 				cb(true)
 			}
 		} else {
