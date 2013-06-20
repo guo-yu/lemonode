@@ -37,13 +37,15 @@ app.configure('development', function(){
 
 // front-end interface
 // use different themes
-app.get('/', require('./routes/index'));
-// app.get('/post/:id', require('./routes/post'));
-// app.get('/page/:id', require('./routes/page'));
-// app.get('/author/:id', require('./routes/index'));
+// app.get('/', require('./routes/index'))
+// app.get('/post/:id', require('./routes/post'))
+// app.get('/page/:id', require('./routes/page'))
+// app.get('/author/:id', require('./routes/index'))
+// app.get('/archive', require('./routes/archive'))
 
 // core api read
-// app.get('/api/site', require('./routes/api/site'))
+app.all('/api/system', require('./routes/api/system'))
+app.all('/api/site', require('./routes/api/site'))
 // app.get('/api/site/:type', require('./routes/api/site'))
 // app.get('/api/cata/:name', require('./routes/api/cata'))
 // app.get('/api/cata/:name/posts', require('./routes/api/cata'))
@@ -53,9 +55,9 @@ app.get('/', require('./routes/index'));
 // app.get('/api/setting', require('./routes/api/setting'))
 
 // core api write
-// app.post('/api/site', require('./routes/api/post/site'))
+// app.post('/api/site', require('./routes/api/site'))
 
 // admin interface
-app.get('/admin',require('./lib/preload')(app),require('./routes/admin/index'));
+app.get('/admin',require('./routes/admin/index'));
 
-http.createServer(app).listen(app.get('port'));
+http.createServer(app).listen(app.get('port'))

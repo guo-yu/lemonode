@@ -3,13 +3,15 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/admin.css')
-    script(src="http://static.alipayobjects.com/seajs/1.3.1/??sea.js,plugin-combo.js",id="seajsnode",charset="utf-8")
+    //- script(src="http://static.alipayobjects.com/seajs/1.3.1/??sea.js,plugin-combo.js",id="seajsnode",charset="utf-8")
+    script(src="/javascripts/lib/angular.min.js")
+    script(src="/javascripts/lib/angular-resource.min.js")
     script(src="/javascripts/admin/index.js")
   body
     #admin
         .hd.fn-clear
           .container
-            h1.fn-left 欢迎，这是 #{site.name} 的后台
+            h1.fn-left 欢迎，这是 {{site.name} 的后台
             .admin-tab
                 .ui-tab
                     ul.ui-tab-items
@@ -27,4 +29,4 @@ html
             block content
         .footer
             .container.fn-clear
-                | &copy; 2012 #{site.name} powered by #{system.name} @ #{system.version}
+                | &copy; 2012 {{site.name}} powered by {{system.name}} @ {{system.version}}

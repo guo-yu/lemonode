@@ -1,13 +1,14 @@
 var model = require('../models'),
 	fs = require('fs');
 
-exports.set = function(key, value) {
-	model.site.findOne({}).exec(function(err, siteinfo) {
-		if(key && value) {
-			siteinfo[key] = value;
-			siteinfo.save();
+exports.set = function(body,cb) {
+	model.site.findOneAndUpdate({}, body, function(err) {
+		if (!err) {
+			cb(body);
+		} else {
+			console.log(err);
 		}
-	})
+	});
 };
 
 exports.get = function(cb) {
