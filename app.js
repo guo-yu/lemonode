@@ -35,6 +35,13 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+// front-end interface
+// use different themes
+app.get('/', require('./routes/index'));
+// app.get('/post/:id', require('./routes/post'));
+// app.get('/page/:id', require('./routes/page'));
+// app.get('/author/:id', require('./routes/index'));
+
 // core api read
 // app.get('/api/site', require('./routes/api/site'))
 // app.get('/api/site/:type', require('./routes/api/site'))
@@ -43,12 +50,10 @@ app.configure('development', function(){
 // app.get('/api/cata/:name/posts/:page', require('./routes/api/cata'))
 // app.get('/api/posts/:id', require('./routes/api/post'))
 // app.get('/api/ads/:type/:limited', require('./routes/api/ads'))
+// app.get('/api/setting', require('./routes/api/setting'))
 
 // core api write
 // app.post('/api/site', require('./routes/api/post/site'))
-
-// front-end interface
-app.get('/',require('./routes/index'));
 
 // admin interface
 app.get('/admin',require('./lib/preload')(app),require('./routes/admin/index'));
