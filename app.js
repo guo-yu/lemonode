@@ -24,7 +24,7 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
+  app.use(express.cookieParser('lemonCMS'));
   app.use(express.session());
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
@@ -43,7 +43,7 @@ app.configure('development', function(){
 // app.get('/author/:id', require('./routes/index'))
 // app.get('/archive', require('./routes/archive'))
 
-// core api read
+// core api
 app.get('/api/system', require('./routes/api/system'))
 app.all('/api/setting', require('./routes/api/setting'))
 // app.get('/api/cata/:name', require('./routes/api/cata'))
@@ -51,12 +51,8 @@ app.all('/api/setting', require('./routes/api/setting'))
 // app.get('/api/cata/:name/posts/:page', require('./routes/api/cata'))
 // app.get('/api/posts/:id', require('./routes/api/post'))
 // app.get('/api/ads/:type/:limited', require('./routes/api/ads'))
-// app.get('/api/setting', require('./routes/api/setting'))
 
-// core api write
-// app.post('/api/site', require('./routes/api/site'))
-
-// install interface and api
+// install interface
 app.all('/install',require('./ctrlers/install').uninstall, require('./routes/admin/install'));
 
 // admin interface

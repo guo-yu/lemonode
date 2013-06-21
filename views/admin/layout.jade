@@ -12,7 +12,7 @@ html(ng-app="lemonAdmin")
     #admin(ng-controller="lemonCtrlers.main")
         .hd.fn-clear
           .container
-            h1.fn-left 欢迎，这是 {{site.name} 的后台
+            h1.fn-left 欢迎，这是 {{setting.name}} 的后台
             .admin-tab
                 .ui-tab
                     ul.ui-tab-items
@@ -30,4 +30,4 @@ html(ng-app="lemonAdmin")
             block content
         .footer
             .container.fn-clear
-                | &copy; 2012 {{site.name}} powered by {{system.name}} @ {{system.version}}
+                | &copy; 2012 {{setting.name}} powered by {{system.name}} @ {{system.version}}

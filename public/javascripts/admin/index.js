@@ -18,7 +18,8 @@ window.lemonCtrlers = {};
 
 lemonCtrlers['main'] = function($scope,Store) {
     Store.get('/api/setting',function(data){
-        console.log(data);
+        $scope.setting = data;
+        console.log($scope.setting);
     });
     Store.get('/api/system',function(data){
         $scope.system = data;
