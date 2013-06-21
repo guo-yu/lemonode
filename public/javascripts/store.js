@@ -8,7 +8,6 @@ var store = angular.module('lemonStore', []).factory('Store', function($rootScop
 			});
 		},
 		post: function(api,params,cb) {
-			// 这里的post应该是什么呢？
 			$http.post(api,params).success(function(data, status, headers, config){
 				cb(data, status, headers, config);
 			});

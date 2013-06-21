@@ -35,7 +35,6 @@ lemonCtrlers['main'] = function($scope,Store) {
 }
 
 lemonCtrlers['post'] = function($scope) {
-}
-
-lemonCtrlers['setting'] = function($scope) {
+    // 新建文章
+    // 文章索引
 }
