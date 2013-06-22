@@ -46,11 +46,11 @@ app.configure('development', function(){
 // core api
 app.get('/api/system', require('./routes/api/system'))
 app.all('/api/setting', require('./routes/api/setting'))
-// app.get('/api/cata/:name', require('./routes/api/cata'))
-// app.get('/api/cata/:name/posts', require('./routes/api/cata'))
-// app.get('/api/cata/:name/posts/:page', require('./routes/api/cata'))
-// app.get('/api/posts/:id', require('./routes/api/post'))
-// app.get('/api/ads/:type/:limited', require('./routes/api/ads'))
+app.get('/api/catas', require('./routes/api/catas'));
+app.all('/api/cata/:id', require('./routes/api/cata'));
+app.get('/api/posts/:type', require('./routes/api/posts'))
+app.all('/api/post/:id', require('./routes/api/post'))
+// app.get('/api/ads/:type', require('./routes/api/ads'))
 
 // install interface
 app.all('/install',require('./ctrlers/install').uninstall, require('./routes/admin/install'));

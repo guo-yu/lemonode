@@ -8,7 +8,11 @@ var store = angular.module('lemonStore', []).factory('Store', function($rootScop
 			});
 		},
 		post: function(api,params,cb) {
-			$http.post(api,params).success(function(data, status, headers, config){
+			var p = params;
+			delete p['__v'];
+			delete p['_id'];
+			$http.post(api,p).success(function(data, status, headers, config){
+				console.log('ok');
 				cb(data, status, headers, config);
 			});
 		}

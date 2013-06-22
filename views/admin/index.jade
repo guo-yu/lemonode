@@ -2,45 +2,20 @@ extends layout
 
 block content
   .container.fn-clear
-    .panels
-        .panel
-            |1
-        .panel
-            |2
     .ui-grid-row
-        .ui-grid-5
-            .ui-box
-                .ui-box-head
-                    .ui-box-head-border
-                        .ui-box-head-title 导航条模块
-                        .ui-box-head-text
-                        a.ui-box-head-more 更多
-                .ui-box-container
-                    .ui-box-content
-                        .ui-list
-                            li.ui-list-item(ng-repeat="nav in navlist")
-                                a(href="#") {{nav.name}}
-        .ui-grid-20
-            .ui-box
-                .ui-box-head
-                    .ui-box-head-border
-                        .ui-box-head-title 站点信息设置
-                        .ui-box-head-text
-                        a.ui-box-head-more 更多
-                .ui-box-container
-                    .ui-box-content
-                        .ui-form(ng-controller="lemonCtrlers.post")
-                            fieldset
-                                .ui-form-item
-                                    label.ui-label 文章标题
-                                    input(type="text").ui-input
-                                    span.ui-form-other *
-                                .ui-form-item
-                                    label.ui-label 文章内容
-                                    textarea(type="text").ui-input
-                                .ui-form-item
-                                    input.ui-button.ui-button-morange(type="submit",value="写好了")
-                                    input.ui-button.ui-button-mwhite(type="button",value="算了")
+        .ui-grid-25
+            .ui-form(ng-controller="lemonCtrlers.post")
+                form#lemonAdminPost
+                    fieldset
+                        .ui-form-item
+                            label.ui-label 文章标题
+                            input(type="text",ng-model="post.title").ui-input
+                        .ui-form-item
+                            label.ui-label 文章内容
+                            textarea(type="text",ng-model="post.body").ui-input.ui-ta
+                        .ui-form-item.button-group
+                            a.ui-button.ui-button-morange(href="#submit",ng-click="postNew()") 写好了
+                            input.ui-button.ui-button-mwhite(type="button",value="算了")
             .ui-box
                 .ui-box-head
                     .ui-box-head-border
@@ -54,34 +29,28 @@ block content
                                 .ui-form-item
                                     label.ui-label 站点名称
                                     input(type="text",ng-model="setting.name").ui-input
-                                    span.ui-form-other 提示
-                                    p.ui-form-explain 默认文案
+                                    //- span.ui-form-other 提示
                                 .ui-form-item
                                     label.ui-label icp备案号
                                     input(type="text",ng-model="setting.icp").ui-input
-                                    span.ui-form-other 提示
-                                    p.ui-form-explain 默认文案
+                                    //- span.ui-form-other 提示
                                 .ui-form-item
                                     label.ui-label 联系电话
                                     input(type="text",ng-model="setting.phone").ui-input
-                                    span.ui-form-other 提示
-                                    p.ui-form-explain 默认文案
+                                    //- span.ui-form-other 提示
                                 .ui-form-item
                                     label.ui-label 传真号
                                     input(type="text",ng-model="setting.fax").ui-input
-                                    span.ui-form-other 提示
-                                    p.ui-form-explain 默认文案
+                                    //- span.ui-form-other 提示
                                 .ui-form-item
                                     label.ui-label 地址
                                     input(type="text",ng-model="setting.adr").ui-input
-                                    span.ui-form-other 提示
-                                    p.ui-form-explain 默认文案
+                                    //- span.ui-form-other 提示
                                 .ui-form-item
                                     label.ui-label 邮箱
                                     input(type="text",ng-model="setting.email").ui-input
-                                    span.ui-form-other 提示
-                                    p.ui-form-explain 默认文案
-                                .ui-form-item
+                                    //- span.ui-form-other 提示
+                                .ui-form-item.button-group
                                     a.ui-button.ui-button-morange(href="javascript:'';",ng-click="update.setting()") 提交修改
                                     input.ui-button.ui-button-mwhite(type="button",value="算了")
             .ui-box

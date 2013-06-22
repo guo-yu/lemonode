@@ -2,7 +2,7 @@ var model = require('../models'),
 	post = model.post;
 
 // 读取一篇文章或者一个页面的所有数据
-exports.read = function(pid,cb){
+exports.read = function(id,cb){
 	post.findById(id).populate('banner').populate('cata').exec(function(err,post){
 		if (!err) {
 			cb(post)
@@ -13,10 +13,10 @@ exports.read = function(pid,cb){
 }
 
 // 获取所有文章或者所有页面
-exports.fetch = function(type,cb) {
+exports.fetch = function(type,page,cb) {
 	post.find({
 		type: type
-	}).exec(function(err,allposts){
+	}).skip(page.from).limit(page.to).exec(function(err,allposts){
 		if (!err) {
 			cb(allposts)
 		}

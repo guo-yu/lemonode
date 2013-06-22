@@ -39,8 +39,28 @@ body {
 #admin .admin-tab li {
   margin-right: 2px;
 }
-.panel {
-  display: none;
+.ui-form-item {
+  font-size: 12px;
+  padding-left: 0px;
+}
+.ui-form-item .ui-label {
+  width: 60px;
+  margin-left: 0px;
+  padding-right: 20px;
+}
+.ui-form-item .ui-input {
+  border-color: #ddd;
+  border-radius: 3px;
+}
+.ui-form-item .ui-button {
+  margin-right: 10px;
+}
+.ui-form-item .ui-ta {
+  width: 880px;
+  height: 300px;
+}
+.button-group {
+  margin-left: 80px;
 }
 .posts i {
   padding-right: 10px;
