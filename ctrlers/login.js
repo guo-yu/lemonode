@@ -4,8 +4,8 @@
  * @author [turingou]
  */
 var model = require('../models'),
-	user = model.user,
-	md5 = require('md5');
+	admin = model.admin,
+	md5 = require('./md5');
 
 exports.checker = function(req,res,next){
 	if (req.session.user) {
@@ -16,24 +16,11 @@ exports.checker = function(req,res,next){
 }
 
 exports.signin = function(req,res,next) {
-  if (!req.session) {
+  if (!req.session.user) {
 	if (req.method == 'GET') {
 		res.render('signin')
 	} else if (req.method == 'POST') {
-		user.findOne({
-			name: req.body.name
-		}).exec(function(err,ad){
-			if (!err) {
-				if (ad.password == md5(req.body.password)) {
-					req.session.user = ad;
-					res.redirect('back'); 
-				} else {
-					res.redirect('/signin?fail=password')
-				}
-			} else {
-				console.log(err)
-			}
-		})
+		// 此出调用相关的ctrler
 	}
   } else {
   	res.redirect('/')
@@ -44,13 +31,12 @@ exports.signup = function(req,res,next) {
 	if (req.method == 'GET') {
 		res.render('signup')
 	} else if (req.method == 'POST') {
-		var baby = new user(req.body);
+		// 此处调用相应的ctrler
+		req.body.password = md5(req.body.password);
+		var baby = new admin(req.body);
 		baby.save(function(err){
 			if(!err) {
-				res.json({
-					stat: ok,
-					baby: baby._id;
-				});
+				res.redirect('/signin');
 			} else {
 				console.log(err)
 			}
@@ -59,6 +45,6 @@ exports.signup = function(req,res,next) {
 }
 
 exports.signout = function(req,res,next) {
-	delete req.session.user
+	delete req.session.user;
 	res.redirect('/')
 }
