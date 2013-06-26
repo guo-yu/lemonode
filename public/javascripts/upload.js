@@ -1,4 +1,4 @@
-window._upload = function(target) {
+window._upload = function(target,cb) {
         
         var removeImg = function(target) {
             $(target).parents('.single-upload').fadeOut(500, function() {
@@ -42,7 +42,7 @@ window._upload = function(target) {
                 if(data.result.stat == 'ok') {
                     data.context.find('.upload-now').replaceWith($('<span class="upload-success" data-url="' + data.result.url + '"/>').text('上传成功'));
                     data.context.find('.file-name').replaceWith($('<img class="uploaded-img" src="' + data.result.url + '" style="max-width:200px;"/>'));
-                    $scope.poll.avatar = data.result.url;
+                    cb(data.result.url);
                 } else {
                     alert(data.result.msg)
                 }
