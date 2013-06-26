@@ -21,10 +21,11 @@ lemonCtrlers['main'] = function($scope, Store) {
 lemonCtrlers['post'] = function($scope) {
     // 新建文章
     $scope.postNew = function() {
-        console.log($scope.post);
         Store.post('/api/post/new', $scope.setting, function(data) {
             alert('修改成功')
         })
     }
     // 文章索引
+    // 媒体文件上传
+    // _upload($('#fileupload'));
 }

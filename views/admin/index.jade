@@ -88,3 +88,15 @@ block content
                             a.ui-paging-prev(href="#")
                                 i.iconfont(title="左三角形") &#xF03A;
                                 | 上一页
+
+block js
+    //- 图片上传部分
+    script(src="/javascripts/upload/vendor/jquery.ui.widget.js")
+    script(src="/javascripts/upload/jquery.iframe-transport.js")
+    script(src="/javascripts/upload/load-image.min.js")
+    script(src="/javascripts/upload/canvas-to-blob.min.js")
+    script(src="/javascripts/upload/jquery.fileupload.js")
+    script(src="/javascripts/upload/jquery.fileupload-fp.js")
+    script(src="/javascripts/upload.js")
+    //- 应用部分
+    script(src="/javascripts/admin/index.js")

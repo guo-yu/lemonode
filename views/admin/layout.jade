@@ -7,7 +7,6 @@ html(ng-app="lemonAdmin")
     script(src="/javascripts/lib/angular.min.js")
     //- script(src="/javascripts/lib/angular-resource.min.js")
     script(src="/javascripts/store.js")
-    script(src="/javascripts/admin/index.js")
   body
     #admin(ng-controller="lemonCtrlers.main")
         .hd.fn-clear
@@ -31,3 +30,4 @@ html(ng-app="lemonAdmin")
         .footer
             .container.fn-clear
                 | &copy; 2012 {{setting.name}} powered by {{system.name}} @ {{system.version}}
+        block js
