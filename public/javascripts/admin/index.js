@@ -27,5 +27,7 @@ lemonCtrlers['post'] = function($scope) {
     }
     // 文章索引
     // 媒体文件上传
-    // _upload($('#fileupload'));
+    _upload($('#fileupload'),function(url){
+        // 这里是上传后返回的url
+    });
 }
