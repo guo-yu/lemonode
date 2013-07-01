@@ -1,10 +1,8 @@
-Lemonode
-========
+## Lemonode
 
 a fresh cms based on Node/Express/Angular
 
-Why Lemonode ? 
-========
+### Why Lemonode ? 
 
 自从懒得在wordpress上写文章之后，我就一直在考虑写一个博客引擎，实际上，这一年来，一直断断续续在写，写了好几个版本的lemonode，最先的博客系统非常乱，后来使用nico打算对客户端全静态化，但功能拓展型不强（基于nico的lemonode已经写成了mac app），对于企业项目，尤其是外包项目来说，急需一个非常有用，拓展性强，最好能一并提供API的博客系统。
 
@@ -14,8 +12,8 @@ Angular的web app化思路让我联想到最初最初我对博客系统的畅想
 
 至于访问速度，更是提升了不止一个数量级。这就是lemonode要达到的目标之一。
 
-功能简介
-========
+### 功能简介
+
 现在支持
 
 `文章管理` 新建，编辑和删除文章以及页面  
@@ -23,10 +21,15 @@ Angular的web app化思路让我联想到最初最初我对博客系统的畅想
 `媒体文件管理与同步` 上传，删除和同步静态资源到cdn  
 `页面管理` 管理页面  
 `链接管理` 管理有钱链接  
-`广告位管理` 定制自己的广告位  
+`广告位管理` 定制自己的广告位 
 
-目录结构
-========
+### 如何安装
+
+#### 使用npm
+`npm install lemonode`
+
+### 目录结构
+
 ````
 - ctrlers 与数据相关的控制器
 - lib helpers
@@ -34,8 +37,8 @@ Angular的web app化思路让我联想到最初最初我对博客系统的畅想
 - routes API路由和页面路由
 ````
 
-Test 
-========
+### Test 
+
 
 `$ cd ./test`
 
@@ -44,8 +47,8 @@ Test
 lemonode使用exports写法描述单元测试
 可以使用nodeunit或者mocha执行单元测试
 
-Roadmap 0.0.1 -> 0.1.0
-========
+### Roadmap 0.0.1 -> 0.1.0
+
 
 - 设计后台页面
 	- (done)

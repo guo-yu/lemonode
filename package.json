@@ -1,13 +1,21 @@
 {
-  "name": "lemonode CMS",
+  "name": "lemonode",
+  "description": "a fresh CMS based on Angular/Node.js/Mongodb",
   "version": "0.0.3",
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/turingou/lemonode"
+  },
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
     "express": "3.0.0rc2",
     "jade": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "async": "*",
+    "mongoose": "*",
+    "nodemailer": "*"
   }
 }
