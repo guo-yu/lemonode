@@ -1,6 +1,6 @@
 var model = require('../models'),
-	user = model.user,
-	group = model.group;
+		user = model.user,
+		group = model.group;
 
 // 新建一个用户
 exports.create = function(baby,cb) {
@@ -23,10 +23,41 @@ exports.update = function(id,body,cb) {
 
 // 删除一个用户
 exports.remove = function(id) {
-	// 删除完这个用户之后，要联动删除在用户组里的记录才行
-	user.findByIdAndRemove(id,function(err){
-		cb(id)
-	});
+	async.waterfall([
+	  function(callback){
+	  		// 先找到这个用户所在的组
+	  		user.findById(id).exec(function(err,u){
+	  			if (!err) {
+	  				if (u) {
+	  					callback(null,u.group)
+	  				}
+	  			} else {
+	  				console.log(err)
+	  			}
+	  		})
+	  },
+	  function(gid, callback){
+	  		// 从这个组里删除这个用户
+	  		group.findById(gid).exec(function(err,g){
+	  			// 这里的语法不一定正确，还要再参照mogoose的文档
+	  			g.user.remove();
+	  			g.save(function(err){
+	  				if (!err) {
+	  					callback(null,gid);
+	  				}
+	  			})
+	  		});
+	  function(gid, callback){
+	  		// 再去删除这个用户
+				user.findByIdAndRemove(id,function(err){
+					if (!err) {
+						cb(id)
+					} else {
+						console.log(err)
+					}
+				});
+	  }
+	]);
 }
 
 // 将某个用户移动到一个组里

@@ -75,7 +75,7 @@ var userModel = new mongoose.Schema({
 	email: String,
 	group: {
 		type: Schema.Types.ObjectId,
-    	ref: 'group'
+  	ref: 'group'
 	}
 });
 

@@ -1,7 +1,7 @@
 var model = require('../models'),
-	media = model.media;
-	cdn = require('../lib/cdn'),
-	async = require('async');
+		media = model.media;
+		cdn = require('../lib/cdn'),
+		async = require('async');
 
 // 新建一个媒体，可以是图片，或者其他附件
 exports.create = function(src,cb) {
@@ -53,7 +53,7 @@ exports.sync = function(id) {
 	]);
 }
 
-// 删除一个媒体
+// 删除一个媒体文件的记录
 // 但我们干嘛要删除一个媒体文件呢？
 exports.remove = function(id) {
 	// 这里也可以做硬盘上删除的操作，但受限于权限。

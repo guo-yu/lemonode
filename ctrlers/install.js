@@ -9,6 +9,8 @@ var model = require('../models'),
 	site = model.site,
 	fs = require('fs');
 
+// 这里默认site只有一个实例，但实际上可能一个mongo里会存在多个实例。
+// 查询的方式要换一个
 exports.fetch = function(cb) {
 	model.site.findOne({}, function(err,site) {
 		if (!err) {
@@ -33,9 +35,9 @@ exports._if = function(predict,cb) {
 	})
 }
 
+// 如果没安装，进行下一步路由
+// 如果安装了，跳转去admin页面
 exports.uninstall = function(req,res,next) {
-	// 如果没安装，进行下一步路由
-	// 如果安装了，跳转去admin页面
 	exports._if(false,function(stat){
 		if (stat) {
 			next()
@@ -45,9 +47,9 @@ exports.uninstall = function(req,res,next) {
 	})
 }
 
+// 如果安装了，进行下一步路由
+// 没安装，跳转去安装界面
 exports.install = function(req,res,next) {
-	// 如果安装了，进行下一步路由
-	// 没安装，跳转去安装界面
 	exports._if(true,function(stat){
 		if (stat) {
 			next()
