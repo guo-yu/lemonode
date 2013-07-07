@@ -25,7 +25,7 @@ exports.update = function(id, body, cb) {
 }
 
 // 删除一个用户组，但不删除其中的用户
-// 而是将这些用户移入默认的组里
+// 而是将这些用户移入默认的组里（能找到的第一个组里）
 exports.remove = function(id, cb) {
 	async.waterfall([
 	  function(callback){

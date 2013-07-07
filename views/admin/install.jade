@@ -3,7 +3,11 @@ extends layout
 block content
   .container.fn-clear
     .ui-grid-row
-        h2 按照您的新博客
+        h2 新建您的站点
         form(action="/install",method="POST",name="setting",id="install")
             input(name="name",placeholder="网站名称")
+            input(name="adminName",placeholder="管理员账户名称",type="text")
+            input(name="adminEmail",placeholder="管理员邮箱",type="text")
+            input(name="adminPassword",placeholder="管理员密码",type="password")
+            input(name="adminPasswordConfirm",placeholder="确认密码",type="password")
             input(type="submit",value="新建我的网站")

@@ -22,7 +22,10 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.logger('dev'));
-  app.use(express.bodyParser());
+  app.use(express.bodyParser({
+    keepExtensions: true,
+    uploadDir: path.join(__dirname, '/public/uploads')
+  }));
   app.use(express.methodOverride());
   app.use(express.cookieParser('lemonCMS'));
   app.use(express.session());
@@ -43,19 +46,20 @@ app.configure('development', function(){
 // app.get('/author/:id', require('./routes/index'))
 // app.get('/archive', require('./routes/archive'))
 
-// core api
+// 核心api
 app.get('/api/system', require('./routes/api/system'))
 app.all('/api/setting', require('./routes/api/setting'))
 app.get('/api/catas', require('./routes/api/catas'));
 app.all('/api/cata/:id', require('./routes/api/cata'));
 app.get('/api/posts/:type', require('./routes/api/posts'))
-app.all('/api/post/:id', require('./routes/api/post'))
+app.all('/api/post/:id', require('./routes/api/post'));
+app.post('/api/upload', require('./routes/upload'));
 // app.get('/api/ads/:type', require('./routes/api/ads'))
 
-// install interface
+// 安装界面
 app.all('/install',require('./ctrlers/install').uninstall, require('./routes/admin/install'));
 
-// admin interface
+// 后台管理
 app.get('/admin',require('./ctrlers/install').install,require('./routes/admin/index'));
 
 http.createServer(app).listen(app.get('port'))

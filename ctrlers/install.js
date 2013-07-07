@@ -6,8 +6,8 @@
 **/
 
 var model = require('../models'),
-	site = model.site,
-	fs = require('fs');
+		site = model.site,
+		fs = require('fs');
 
 // 这里默认site只有一个实例，但实际上可能一个mongo里会存在多个实例。
 // 查询的方式要换一个

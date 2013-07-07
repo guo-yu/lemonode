@@ -4,8 +4,8 @@
  * @author [turingou]
  */
 var model = require('../models'),
-	admin = model.admin,
-	md5 = require('./md5');
+		admin = model.admin,
+		md5 = require('../lib/md5');
 
 exports.checker = function(req,res,next){
 	if (req.session.user) {

@@ -2,12 +2,12 @@
 module.exports = function(req, res) {
 
   if(req.session.user) {
-    var path = req.files.uploadedImg.path;
+    var path = req.files.image.path;
     res.json({
       stat: 'ok',
-      file: req.files.uploadedImg,
+      file: req.files.image,
       url: path.substr(path.lastIndexOf('/uploads'))
-    })
+    });
   } else {
     res.json({
       stat: 'error',
