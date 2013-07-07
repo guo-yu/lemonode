@@ -50,7 +50,7 @@ app.configure('development', function(){
 app.get('/api/system', require('./routes/api/system'))
 app.all('/api/setting', require('./routes/api/setting'))
 app.get('/api/catas', require('./routes/api/catas'));
-app.all('/api/cata/:id', require('./routes/api/cata'));
+// app.all('/api/cata/:id', require('./routes/api/cata'));
 app.get('/api/posts/:type', require('./routes/api/posts'))
 app.all('/api/post/:id', require('./routes/api/post'));
 app.post('/api/upload', require('./routes/upload'));
